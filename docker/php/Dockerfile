@@ -17,6 +17,8 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions xdebug @composer-2
 
+RUN apt-get update && apt-get install default-mysql-client -y
+
 COPY . /var/www
 WORKDIR /var/www
 
