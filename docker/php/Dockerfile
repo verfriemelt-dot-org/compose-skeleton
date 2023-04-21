@@ -18,6 +18,8 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions xdebug @composer-2
 
 RUN apt-get update && apt-get install default-mysql-client -y
+RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash
+RUN apt-get install symfony-cli -y
 
 COPY . /var/www
 WORKDIR /var/www
