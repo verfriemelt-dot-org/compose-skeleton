@@ -9,6 +9,7 @@ ARG USER
 ARG UID=1000
 
 RUN useradd -U $USER -u $UID
+RUN mkdir /home/$USER && chown $USER:$USER /home/$USER
 
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
