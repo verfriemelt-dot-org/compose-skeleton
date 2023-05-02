@@ -16,7 +16,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions xdebug @composer-2
+    install-php-extensions xdebug @composer-2 curl gd mbstring opcache pdo pdo_pgsql pdo_mysql bcmath zip memcached
 
 RUN apt-get update && apt-get install default-mysql-client -y
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash
